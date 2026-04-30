@@ -1,17 +1,255 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JYA Inc.</title>
+  <title>JYA Inc. | Mission‑Critical Project Controls & Federal Integration</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
-    h1 { color: #003366; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #111;
+    }
+
+    /* Color palette */
+    :root {
+      --navy: #151A30;
+      --gold: #C8A75E;
+      --lightgray: #F5F6F7;
+      --white: #FFFFFF;
+    }
+
+    /* Generic layout */
+    section {
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid var(--gold);
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* Credential strip */
+    .credentials {
+      background: var(--white);
+      text-align: center;
+    }
+    .cred-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      font-weight: bold;
+      color: var(--navy);
+    }
+    .cred-grid div {
+      border-left: 3px solid var(--gold);
+      padding-left: 12px;
+    }
+
+    /* Core capabilities */
+    .capabilities {
+      background: var(--lightgray);
+    }
+    .card-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: var(--white);
+      padding: 20px;
+      border-left: 4px solid var(--gold);
+      flex: 1;
+      min-width: 260px;
+    }
+
+    /* Federal experience */
+    .experience {
+      background: var(--white);
+    }
+    .exp-list {
+      columns: 2;
+      column-gap: 40px;
+    }
+    .exp-list li {
+      margin-bottom: 10px;
+    }
+
+    /* Why leaders choose */
+    .why {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+    .why-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .why-item {
+      max-width: 260px;
+      border-top: 3px solid var(--gold);
+      padding-top: 15px;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--lightgray);
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 3px solid rgba(200,167,94,0.2);
+    }
   </style>
 </head>
+
 <body>
-  <h1>Welcome to JYA Inc.</h1>
-  <p>This site is now hosted on GitHub Pages.</p>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Mission‑Critical Project Controls & GC/Federal Integration</h1>
+      <p>Direct‑to‑Leadership advisory for high‑stakes engineering, cost, and schedule environments.</p>
+      <div class="btn-row">
+        <a href="mailto:john@jyainc.com" class="btn btn-primary">Contact JYA Inc.</a>
+        <a href="#capabilities" class="btn btn-secondary">Capabilities Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIAL STRIP -->
+  <section class="credentials">
+    <div class="container">
+      <div class="cred-grid">
+        <div>TS/SCI Cleared</div>
+        <div>PE (ME/EE)</div>
+        <div>PMP • CEP • LEED AP BD+C</div>
+        <div>Mission‑Critical / STRATCOM Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE CAPABILITIES -->
+  <section class="capabilities" id="capabilities">
+    <div class="container">
+      <h2>Core Capabilities</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Mission‑Critical Project Controls</h3>
+          <p>Cost, schedule, risk, and integration for high‑stakes programs.</p>
+        </div>
+        <div class="card">
+          <h3>GC/Federal Integration</h3>
+          <p>Bridging contractors, engineering teams, and federal leadership.</p>
+        </div>
+        <div class="card">
+          <h3>Technical Advisory</h3>
+          <p>Direct‑to‑leadership guidance for complex engineering environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEDERAL EXPERIENCE -->
+  <section class="experience">
+    <div class="container">
+      <h2>Federal & Mission‑Critical Experience</h2>
+      <ul class="exp-list">
+        <li>Multi‑era presence in STRATCOM facilities</li>
+        <li>Mission‑critical engineering & cost integration</li>
+        <li>GC/federal contractor alignment</li>
+        <li>High‑stakes program controls</li>
+        <li>Engineering‑driven risk analysis</li>
+        <li>Owner’s rep & leadership advisory</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY LEADERS CHOOSE -->
+  <section class="why">
+    <div class="container">
+      <h2>Why Leadership Trusts JYA Inc.</h2>
+      <div class="why-grid">
+        <div class="why-item">Direct‑to‑Leadership Engagement</div>
+        <div class="why-item">Engineering‑Driven Rigor</div>
+        <div class="why-item">Zero‑Noise, Actionable Guidance</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <h2>About JYA Inc.</h2>
+      <p>
+        JYA Inc. provides mission‑critical project controls, engineering advisory, and GC/federal integration services with a direct‑to‑leadership posture. With multi‑disciplinary PE licensure, advanced cost engineering credentials, and deep STRATCOM familiarity, JYA Inc. supports high‑stakes environments where precision and clarity matter.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="container">
+      <h2>Engage JYA Inc.</h2>
+      <p>For mission‑critical programs requiring engineering rigor and federal alignment.</p>
+      <a href="mailto:john@jyainc.com" class="btn btn-primary">Contact JYA Inc.</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>JYA Inc. • Mission‑Critical Project Controls & Federal Integration</p>
+    <p>PE (ME/EE) • PMP • CEP • LEED AP BD+C</p>
+    <p>© 2026 JYA Inc.</p>
+  </footer>
+
 </body>
 </html>
