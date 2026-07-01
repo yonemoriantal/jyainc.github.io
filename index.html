@@ -32,7 +32,7 @@
     a:hover { color: var(--white); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* ==================== NAVIGATION ==================== */
+    /* NAVIGATION */
     nav {
       position: fixed;
       top: 0;
@@ -47,12 +47,12 @@
     .nav-container {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: .85rem 0;
     }
 
     /* FAR LEFT */
     .nav-left {
-      flex: 0 0 auto;
       display: flex;
       align-items: center;
     }
@@ -70,12 +70,6 @@
     .brand span { color: var(--accent); font-style: normal; }
 
     /* CENTER */
-    .nav-center {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
     .nav-center ul {
       list-style: none;
       display: flex;
@@ -95,7 +89,6 @@
 
     /* FAR RIGHT */
     .nav-right {
-      flex: 0 0 auto;
       display: flex;
       align-items: center;
     }
@@ -162,7 +155,7 @@
       }
     }
 
-    /* ==================== HERO & OTHER SECTIONS ==================== */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -223,6 +216,7 @@
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--white); }
 
+    /* SECTIONS */
     section { padding: 5rem 0; }
     section:nth-child(even) { background: var(--slate); }
     .section-label {
