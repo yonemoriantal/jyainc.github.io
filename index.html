@@ -47,7 +47,6 @@
     .nav-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: .85rem 0;
       gap: 1rem;
     }
@@ -71,7 +70,7 @@
     }
     .brand span { color: var(--accent); font-style: normal; }
 
-    /* CENTER */
+    /* CENTER - Main Menu */
     .nav-center {
       flex: 1;
       display: flex;
@@ -81,8 +80,8 @@
     .nav-center ul {
       list-style: none;
       display: flex;
-      gap: 1.6rem;
-      flex-wrap: wrap;
+      gap: 1.8rem;
+      flex-wrap: nowrap;           /* Prevent wrapping */
     }
 
     .nav-center ul li a {
@@ -91,6 +90,7 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: .08em;
+      white-space: nowrap;
     }
     .nav-center ul li a:hover { color: var(--white); }
 
@@ -163,7 +163,7 @@
       }
     }
 
-    /* ==================== REST OF SITE ==================== */
+    /* ==================== HERO & OTHER SECTIONS ==================== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -383,32 +383,8 @@
       <!-- FAR LEFT -->
       <div class="nav-left">
         <a href="#home" class="brand">
-          <svg width="42" height="28" viewBox="0 0 1235 650" xmlns="http://www.w3.org/2000/svg"
+          <img src="/Flag_of_the_United_States.svg.webp" alt="American flag" width="42" height="28"
                style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-            <rect width="1235" height="650" fill="#b22234"/>
-            <rect y="50" width="1235" height="50" fill="#ffffff"/>
-            <rect y="150" width="1235" height="50" fill="#ffffff"/>
-            <rect y="250" width="1235" height="50" fill="#ffffff"/>
-            <rect y="350" width="1235" height="50" fill="#ffffff"/>
-            <rect y="450" width="1235" height="50" fill="#ffffff"/>
-            <rect y="550" width="1235" height="50" fill="#ffffff"/>
-            <rect width="494" height="350" fill="#3c3b6e"/>
-            <g fill="#ffffff">
-              <circle cx="80" cy="50" r="12"/><circle cx="160" cy="50" r="12"/>
-              <circle cx="240" cy="50" r="12"/><circle cx="320" cy="50" r="12"/>
-              <circle cx="400" cy="50" r="12"/>
-              <circle cx="120" cy="110" r="12"/><circle cx="200" cy="110" r="12"/>
-              <circle cx="280" cy="110" r="12"/><circle cx="360" cy="110" r="12"/>
-              <circle cx="80" cy="170" r="12"/><circle cx="160" cy="170" r="12"/>
-              <circle cx="240" cy="170" r="12"/><circle cx="320" cy="170" r="12"/>
-              <circle cx="400" cy="170" r="12"/>
-              <circle cx="120" cy="230" r="12"/><circle cx="200" cy="230" r="12"/>
-              <circle cx="280" cy="230" r="12"/><circle cx="360" cy="230" r="12"/>
-              <circle cx="80" cy="290" r="12"/><circle cx="160" cy="290" r="12"/>
-              <circle cx="240" cy="290" r="12"/><circle cx="320" cy="290" r="12"/>
-              <circle cx="400" cy="290" r="12"/>
-            </g>
-          </svg>
           Celebrating 250 Years of the USA
         </a>
       </div>
