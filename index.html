@@ -44,7 +44,7 @@
       border-bottom: 1px solid var(--divider);
     }
 
-    nav .nav-wrapper {
+    .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -163,7 +163,7 @@
       }
     }
 
-    /* ==================== REST OF THE PAGE ==================== */
+    /* ==================== REST OF SITE ==================== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -378,7 +378,7 @@
 <body>
   <!-- NAVIGATION -->
   <nav aria-label="Main navigation">
-    <div class="container nav-wrapper">
+    <div class="container nav-container">
       
       <!-- FAR LEFT -->
       <div class="nav-left">
@@ -413,7 +413,6 @@
         </a>
       </div>
 
-      <!-- Mobile Toggle -->
       <button class="nav-toggle" aria-label="Toggle navigation"
         onclick="document.querySelector('.nav-center ul').classList.toggle('open')">
         <span></span><span></span><span></span>
