@@ -3,16 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>JYA Inc. — Mission-Critical Project Controls</title>
   <meta name="description" content="JYA Inc. provides mission-critical project controls, federal contractor integration, BIM/VDC strategy, cost engineering, and compliance-aligned documentation for high-assurance programs worldwide." />
   <meta name="keywords" content="JYA Inc, project controls, federal contracting, BIM, VDC, cost engineering, TS/SCI, LEED, mission-critical, Omaha, Nebraska" />
   <meta name="author" content="JYA Inc." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="JYA Inc. — Mission-Critical Project Controls" />
-  <meta property="og:description" content="Structured oversight and executive-level clarity for programs operating in high-assurance environments." />
-  <meta property="og:type" content="website" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,29 +16,24 @@
       --steel: #3a4f66;
       --accent: #4a90d9;
       --accent-dim: #3670b0;
-      --light: #e8ecf1;
       --white: #ffffff;
       --divider: #2c3e55;
       --text-main: #d0d8e2;
       --text-muted: #8a9bb0;
-      --font-sans: 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif;
-      --font-mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
       --max-width: 1120px;
-      --section-py: 5rem;
     }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: var(--font-sans);
+      font-family: 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif;
       background: var(--navy);
       color: var(--text-main);
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
     }
     a { color: var(--accent); text-decoration: none; transition: color .2s; }
     a:hover { color: var(--white); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* ===== NAVIGATION ===== */
+    /* NAVIGATION */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(11, 26, 46, .92);
@@ -53,114 +42,195 @@
     }
     nav .container {
       display: flex; align-items: center; justify-content: space-between;
-      padding: .85rem 0;
-      gap: 1rem;
-      flex-wrap: wrap;
+      padding: .85rem 0; gap: 1rem; flex-wrap: wrap;
     }
+
+    /* Brand (Left) */
     nav .brand {
       font-size: 1.05rem;
-      font-weight: 400;           /* Not bold */
-      font-style: italic;        /* Italic as requested */
+      font-weight: 400;
+      font-style: italic;
       color: var(--white);
-      letter-spacing: .02em;
-      white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 10px;
+      white-space: nowrap;
     }
     nav .brand span { color: var(--accent); font-style: normal; }
 
-    nav ul { list-style: none; display: flex; gap: 1.4rem; flex-wrap: wrap; }
+    /* Main Menu */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
     nav ul li a {
-      font-size: .82rem; font-weight: 500; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: .08em; transition: color .2s;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
     }
     nav ul li a:hover { color: var(--white); }
 
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .25rem; }
-    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text-main); margin: 5px 0; transition: .3s; }
-
+    /* Cross-site menu (Right) */
     .xnav {
-      display: flex; gap: .5rem; align-items: center; justify-content: flex-end; flex-wrap: wrap;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
     }
     .xnav a {
-      font-size: .72rem; font-weight: 600; color: var(--steel);
-      text-transform: uppercase; letter-spacing: .08em;
-      padding: .25rem .45rem; border-radius: 4px; border: 1px solid transparent;
-      transition: color .2s, border-color .2s, background .2s; white-space: nowrap;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--divider);
+      transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .xnav a:hover {
-      color: var(--white); border-color: var(--divider);
-      background: rgba(74,144,217,.06);
+      color: var(--white);
+      border-color: var(--accent);
+      background: rgba(74, 144, 217, 0.08);
     }
     .xnav a.active {
-      color: var(--white); border-color: var(--accent);
-      background: rgba(74,144,217,.10);
+      color: var(--white);
+      border-color: var(--accent);
+      background: rgba(74, 144, 217, 0.12);
     }
 
+    /* Mobile */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .25rem;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      margin: 5px 0;
+      transition: .3s;
+    }
     @media (max-width: 768px) {
       .nav-toggle { display: block; }
       nav ul {
-        display: none; flex-direction: column; position: absolute;
-        top: 100%; left: 0; right: 0; background: var(--navy);
-        border-bottom: 1px solid var(--divider); padding: 1rem 5%; gap: .8rem;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--navy);
+        padding: 1rem 5%;
+        gap: .8rem;
       }
       nav ul.open { display: flex; }
-      .xnav { width: 100%; justify-content: flex-start; padding-bottom: .25rem; }
+      .xnav {
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: .5rem;
+        border-top: 1px solid var(--divider);
+        margin-top: .25rem;
+      }
     }
 
-    /* ===== HERO ===== */
+    /* HERO */
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 8rem 0 6rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 0 6rem;
       background:
         radial-gradient(ellipse at 30% 20%, rgba(74,144,217,.08) 0%, transparent 60%),
         radial-gradient(ellipse at 70% 80%, rgba(74,144,217,.05) 0%, transparent 50%),
         var(--navy);
     }
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: var(--white);
-      line-height: 1.15; margin-bottom: 1rem;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
     }
     .hero h1 span { color: var(--accent); }
     .hero .subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-muted);
-      max-width: 680px; margin: 0 auto 1.5rem; line-height: 1.65;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.65;
     }
     .hero .credentials {
-      font-size: .8rem; color: var(--steel); letter-spacing: .06em;
-      text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 2.5rem;
+      font-size: .8rem;
+      color: var(--steel);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-family: 'Cascadia Code', monospace;
+      margin-bottom: 2.5rem;
     }
-    .hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero .cta-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
     .btn {
-      display: inline-block; padding: .75rem 2rem; border-radius: 4px;
-      font-size: .85rem; font-weight: 600; letter-spacing: .04em;
-      text-transform: uppercase; transition: all .25s;
+      display: inline-block;
+      padding: .75rem 2rem;
+      border-radius: 4px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: all .25s;
     }
     .btn-primary { background: var(--accent); color: var(--white); }
     .btn-primary:hover { background: var(--accent-dim); color: var(--white); }
     .btn-outline {
-      border: 1px solid var(--steel); color: var(--text-main); background: transparent;
+      border: 1px solid var(--steel);
+      color: var(--text-main);
+      background: transparent;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--white); }
 
-    /* ===== SECTIONS ===== */
-    section { padding: var(--section-py) 0; }
+    /* SECTIONS */
+    section { padding: 5rem 0; }
     section:nth-child(even) { background: var(--slate); }
     .section-label {
-      font-size: .7rem; text-transform: uppercase; letter-spacing: .16em;
-      color: var(--accent); font-weight: 600; margin-bottom: .5rem;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: .5rem;
     }
     .section-title {
-      font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
-      color: var(--white); margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
     }
     .section-intro {
-      max-width: 720px; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7;
+      max-width: 720px;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
     .divider {
-      width: 48px; height: 3px; background: var(--accent);
-      border-radius: 2px; margin-bottom: 2rem;
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 2rem;
     }
 
     /* About */
@@ -168,62 +238,85 @@
     .about-text p { margin-bottom: 1rem; }
     .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
     .highlight-card {
-      background: var(--navy); border: 1px solid var(--divider);
-      border-radius: 6px; padding: 1.4rem;
+      background: var(--navy);
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+      padding: 1.4rem;
     }
-    .highlight-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; }
+    .highlight-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
     .highlight-card .label { font-size: .78rem; color: var(--text-muted); margin-top: .35rem; text-transform: uppercase; letter-spacing: .06em; }
     @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
 
     /* Services */
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     .service-card {
-      background: var(--navy); border: 1px solid var(--divider);
-      border-radius: 6px; padding: 2rem; transition: border-color .3s;
+      background: var(--navy);
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: border-color .3s;
     }
     .service-card:hover { border-color: var(--accent); }
     .service-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: .6rem; }
     .service-card p { font-size: .9rem; color: var(--text-muted); }
     .service-icon {
-      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-      background: rgba(74,144,217,.1); border-radius: 8px; margin-bottom: 1rem;
-      color: var(--accent); font-size: 1.1rem;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(74,144,217,.1);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1.1rem;
     }
 
     /* Capabilities */
     .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
     .cap-item {
       display: flex; align-items: center; gap: .75rem;
-      padding: 1rem 1.2rem; border-radius: 6px;
-      background: var(--slate); border: 1px solid var(--divider);
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      background: var(--slate);
+      border: 1px solid var(--divider);
     }
     .cap-item .cap-icon { color: var(--accent); font-size: 1rem; flex-shrink: 0; }
     .cap-item span { font-size: .88rem; color: var(--text-main); }
 
     /* Table */
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .85rem; }
     thead { background: var(--accent); }
     thead th {
-      padding: .85rem 1rem; text-align: left; font-weight: 600; color: var(--white);
-      text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; white-space: nowrap;
+      padding: .85rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .72rem;
     }
-    tbody tr { border-bottom: 1px solid var(--divider); transition: background .2s; }
+    tbody tr { border-bottom: 1px solid var(--divider); }
     tbody tr:hover { background: rgba(74,144,217,.06); }
     tbody td { padding: .8rem 1rem; color: var(--text-main); vertical-align: top; }
-    tbody td:first-child { font-weight: 600; color: var(--white); white-space: nowrap; }
+    tbody td:first-child { font-weight: 600; color: var(--white); }
 
     /* Experience */
     .exp-timeline { position: relative; padding-left: 2rem; }
     .exp-timeline::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px; background: var(--divider);
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--divider);
     }
     .exp-item { position: relative; margin-bottom: 2.5rem; }
     .exp-item::before {
-      content: ''; position: absolute; left: -2rem; top: .45rem;
-      width: 10px; height: 10px; background: var(--accent);
-      border-radius: 50%; border: 2px solid var(--navy); transform: translateX(-4px);
+      content: '';
+      position: absolute;
+      left: -2rem; top: .45rem;
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--navy);
     }
     .exp-item h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: .3rem; }
     .exp-item .exp-role { font-size: .82rem; color: var(--accent); text-transform: uppercase; letter-spacing: .04em; margin-bottom: .5rem; }
@@ -236,22 +329,30 @@
     .contact-info-item .ci-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: .15rem; }
     .contact-info-item .ci-value { font-size: .95rem; color: var(--white); }
 
-    .contact-form input, .contact-form textarea {
-      width: 100%; padding: .75rem 1rem; margin-bottom: 1rem;
-      background: var(--navy); border: 1px solid var(--divider);
-      border-radius: 4px; color: var(--text-main);
-      font-family: var(--font-sans); font-size: .9rem; transition: border-color .2s;
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: .75rem 1rem;
+      margin-bottom: 1rem;
+      background: var(--navy);
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      color: var(--text-main);
+      font-size: .9rem;
     }
-    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); }
+    .contact-form input:focus,
+    .contact-form textarea:focus { outline: none; border-color: var(--accent); }
     .contact-form textarea { min-height: 120px; resize: vertical; }
-    .contact-form .btn { width: 100%; text-align: center; border: none; cursor: pointer; }
+    .contact-form .btn { width: 100%; }
 
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
 
     /* Footer */
     footer {
-      background: var(--navy); border-top: 1px solid var(--divider);
-      padding: 2.5rem 0; text-align: center;
+      background: var(--navy);
+      border-top: 1px solid var(--divider);
+      padding: 2.5rem 0;
+      text-align: center;
     }
     footer p { font-size: .78rem; color: var(--text-muted); }
     footer .footer-links { margin-top: .5rem; }
@@ -264,9 +365,9 @@
   <!-- NAVIGATION -->
   <nav aria-label="Main navigation">
     <div class="container">
+      <!-- LEFT: Flag + Text -->
       <a href="#home" class="brand">
-        <!-- INLINE AMERICAN FLAG -->
-        <svg width="42" height="28" viewBox="0 0 1235 650" xmlns="http://www.w3.org/2000/svg" 
+        <svg width="42" height="28" viewBox="0 0 1235 650" xmlns="http://www.w3.org/2000/svg"
              style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
           <rect width="1235" height="650" fill="#b22234"/>
           <rect y="50" width="1235" height="50" fill="#ffffff"/>
@@ -295,11 +396,13 @@
         Celebrating 250 Years of the USA
       </a>
 
+      <!-- Mobile Toggle -->
       <button class="nav-toggle" aria-label="Toggle navigation"
         onclick="document.querySelector('nav ul').classList.toggle('open')">
         <span></span><span></span><span></span>
       </button>
 
+      <!-- CENTER: Main Menu -->
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -308,6 +411,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
+      <!-- RIGHT: Other Sites -->
       <div class="xnav">
         <a id="xnav-jya" href="https://jyainc.com">JYA Inc.</a>
         <a id="xnav-hh" href="https://homes-hear-specialist.com">HOMES / HEAR</a>
@@ -408,16 +512,19 @@
         <table>
           <thead>
             <tr>
-              <th>Agency / Client</th><th>Key Projects</th><th>Role(s)</th><th>Scope / Impact</th>
+              <th>Agency / Client</th>
+              <th>Key Projects</th>
+              <th>Role(s)</th>
+              <th>Scope / Impact</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>DHS — U.S. Customs & Border Protection</td><td>Nationwide detention facilities; Joint Processing Centers (Top Secret)</td><td>Owner's Representative; Quality Assurance</td><td>Emergency-funded task orders supporting multi-state mission-critical programs.</td></tr>
-            <tr><td>DoD — U.S. Air Force</td><td>NKO Tier IV Data Center (Offutt AFB); STRATCOM Tier IV Data Center</td><td>Project Manager; Owner's Representative</td><td>$500M+ mission-critical programs.</td></tr>
-            <tr><td>DoD — U.S. Army / USACE</td><td>Yuma Proving Grounds; Ramstein AFB data center and tunnel</td><td>Estimator; Professional Engineer</td><td>Secure underground infrastructure and Tier IV data centers.</td></tr>
-            <tr><td>DoD — U.S. Navy / NAVFAC</td><td>China Lake NAWS (>$2B); NAVFAC Hawaii solar</td><td>Senior Estimator; Concept Design</td><td>Large-scale aviation and energy programs.</td></tr>
-            <tr><td>DOJ — Federal Bureau of Investigation</td><td>FBI Redstone Arsenal Tier IV Data Center</td><td>Owner's Representative; Quality Assurance</td><td>Mission-critical data center delivery.</td></tr>
-            <tr><td>Intelligence Community (NSA, USSTRATCOM)</td><td>NSA Fort Meade data center; STRATCOM continuity infrastructure</td><td>Professional Engineer; BIM/VDC Lead</td><td>TS/SCI mission-critical support.</td></tr>
+            <tr><td>DHS — U.S. Customs & Border Protection</td><td>Nationwide detention facilities</td><td>Owner's Representative</td><td>Emergency-funded task orders</td></tr>
+            <tr><td>DoD — U.S. Air Force</td><td>NKO & STRATCOM Tier IV Data Centers</td><td>Project Manager</td><td>$500M+ mission-critical programs</td></tr>
+            <tr><td>DoD — U.S. Army / USACE</td><td>Secure underground infrastructure</td><td>Estimator / PE</td><td>Tier IV data centers & tunnels</td></tr>
+            <tr><td>DoD — U.S. Navy / NAVFAC</td><td>China Lake NAWS & solar programs</td><td>Senior Estimator</td><td>Large-scale aviation & energy</td></tr>
+            <tr><td>DOJ — FBI</td><td>Redstone Arsenal Tier IV Data Center</td><td>Owner's Representative</td><td>Mission-critical delivery</td></tr>
+            <tr><td>Intelligence Community</td><td>NSA Fort Meade & STRATCOM</td><td>BIM/VDC Lead</td><td>TS/SCI SCIF-grade facilities</td></tr>
           </tbody>
         </table>
       </div>
@@ -430,13 +537,13 @@
       <p class="section-label">Experience</p>
       <h2 class="section-title">Representative Experience</h2>
       <div class="divider"></div>
-      <p class="section-intro">High-level summaries of mission-critical program experience across federal defense, intelligence, and civilian agency environments.</p>
+      <p class="section-intro">High-level summaries of mission-critical program experience.</p>
       <div class="exp-timeline">
-        <div class="exp-item"><h3>Tier IV Data Center Programs</h3><div class="exp-role">Multiple Agencies — CONUS / OCONUS</div><p>End-to-end project controls for Tier IV programs including NKO, STRATCOM, FBI Redstone, NSA Fort Meade, and Ramstein AFB.</p></div>
-        <div class="exp-item"><h3>Secure Underground & Continuity Infrastructure</h3><div class="exp-role">Army, NSA, USSTRATCOM</div><p>Engineering and estimating for classified underground facilities supporting national continuity missions.</p></div>
-        <div class="exp-item"><h3>Detention & Border Security Infrastructure</h3><div class="exp-role">DHS — U.S. Customs & Border Protection</div><p>Owner's Representative support for detention facilities and Joint Processing Centers.</p></div>
-        <div class="exp-item"><h3>Aviation & Renewable Energy Programs</h3><div class="exp-role">U.S. Navy / NAVFAC</div><p>Senior estimating and concept design for aviation and renewables programs.</p></div>
-        <div class="exp-item"><h3>HOMES / HEAR Energy Modeling</h3><div class="exp-role">Nebraska & Iowa</div><p>Developing submission packets and unified project dossiers for energy rebate programs.</p></div>
+        <div class="exp-item"><h3>Tier IV Data Center Programs</h3><div class="exp-role">Multiple Agencies</div><p>End-to-end project controls for Tier IV programs across CONUS and OCONUS.</p></div>
+        <div class="exp-item"><h3>Secure Underground & Continuity Infrastructure</h3><div class="exp-role">Army, NSA, USSTRATCOM</div><p>Engineering and estimating for classified underground facilities.</p></div>
+        <div class="exp-item"><h3>Detention & Border Security Infrastructure</h3><div class="exp-role">DHS</div><p>Owner's Representative support for detention facilities.</p></div>
+        <div class="exp-item"><h3>Aviation & Renewable Energy Programs</h3><div class="exp-role">U.S. Navy / NAVFAC</div><p>Senior estimating and concept design for aviation and energy programs.</p></div>
+        <div class="exp-item"><h3>HOMES / HEAR Energy Modeling</h3><div class="exp-role">Nebraska & Iowa</div><p>Energy rebate modeling and submission packet preparation.</p></div>
       </div>
     </div>
   </section>
@@ -452,7 +559,7 @@
           <p class="section-intro" style="margin-bottom:2rem;">Ready to discuss a program, partnership, or teaming opportunity? Reach out directly—we respond within one business day.</p>
           <div class="contact-info-item"><span class="ci-icon">✉</span><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:john@jyainc.com">john@jyainc.com</a></div></div></div>
           <div class="contact-info-item"><span class="ci-icon">☎</span><div><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:+14024305418">(402) 430-5418</a></div></div></div>
-          <div class="contact-info-item"><span class="ci-icon">⚑</span><div><div class="ci-label">Office</div><div class="ci-value">302 Prairie Road<br>Plattsmouth, NE 68048</div></div></div>
+          <div class="contact-info-item"><span class="ci-icon">⚑</span><div><div class="ci-label">Office</div><div class="ci-value">302 Prairie Road, Plattsmouth, NE 68048</div></div></div>
           <div class="contact-info-item"><span class="ci-icon">◆</span><div><div class="ci-label">Registrations</div><div class="ci-value">SAM.gov · DSBS · NE License #24979-26</div></div></div>
         </div>
         <div class="contact-form">
@@ -462,7 +569,7 @@
             <input type="text" name="subject" placeholder="Subject" />
             <textarea name="message" placeholder="How can we help?" required></textarea>
             <button type="submit" class="btn btn-primary">Send Message</button>
-            <p style="margin-top:.75rem;font-size:.8rem;color:var(--text-muted);">Note: This form is a static placeholder. Use email for now.</p>
+            <p style="margin-top:.75rem; font-size:.8rem; color:var(--text-muted);">Note: This form is a static placeholder. Use email for now.</p>
           </form>
         </div>
       </div>
@@ -483,6 +590,7 @@
   </footer>
 
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
@@ -495,13 +603,15 @@
       });
     });
 
-    const navEl = document.querySelector('nav');
+    // Sticky nav
+    const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
-      navEl.style.background = window.scrollY > 60
+      nav.style.background = window.scrollY > 60
         ? 'rgba(11, 26, 46, .97)'
         : 'rgba(11, 26, 46, .92)';
     });
 
+    // Active cross-site link
     (function () {
       const host = (location.hostname || '').toLowerCase();
       const jya = document.getElementById('xnav-jya');
