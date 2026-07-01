@@ -48,14 +48,13 @@
       display: flex;
       align-items: center;
       padding: .85rem 0;
-      gap: 1rem;
     }
 
     /* FAR LEFT */
     .nav-left {
+      flex: 0 0 auto;
       display: flex;
       align-items: center;
-      flex-shrink: 0;
     }
 
     .brand {
@@ -70,7 +69,7 @@
     }
     .brand span { color: var(--accent); font-style: normal; }
 
-    /* CENTER - Main Menu */
+    /* CENTER */
     .nav-center {
       flex: 1;
       display: flex;
@@ -80,8 +79,8 @@
     .nav-center ul {
       list-style: none;
       display: flex;
-      gap: 1.8rem;
-      flex-wrap: nowrap;           /* Prevent wrapping */
+      gap: 2.8rem;
+      flex-wrap: nowrap;
     }
 
     .nav-center ul li a {
@@ -96,9 +95,9 @@
 
     /* FAR RIGHT */
     .nav-right {
+      flex: 0 0 auto;
       display: flex;
       align-items: center;
-      flex-shrink: 0;
     }
 
     .xnav {
@@ -587,7 +586,6 @@
   </footer>
 
   <script>
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
@@ -600,7 +598,6 @@
       });
     });
 
-    // Sticky nav
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       navEl.style.background = window.scrollY > 60
@@ -608,7 +605,6 @@
         : 'rgba(11, 26, 46, .92)';
     });
 
-    // Active cross-site link
     (function () {
       const host = (location.hostname || '').toLowerCase();
       const jya = document.getElementById('xnav-jya');
