@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +62,9 @@
       font-size: 1.15rem; font-weight: 700; color: var(--white);
       letter-spacing: .04em;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     nav .brand span { color: var(--accent); }
     nav ul { list-style: none; display: flex; gap: 1.4rem; flex-wrap: wrap; }
@@ -76,7 +78,7 @@
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .25rem; }
     .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text-main); margin: 5px 0; transition: .3s; }
 
-    /* ===== CROSS‑SITE NAV (NEW) ===== */
+    /* ===== CROSS‑SITE NAV ===== */
     .xnav {
       display: flex;
       gap: .5rem;
@@ -107,6 +109,7 @@
       background: rgba(74,144,217,.10);
     }
 
+
     @media (max-width: 768px) {
       .nav-toggle { display: block; }
       nav ul {
@@ -116,7 +119,6 @@
         gap: .8rem;
       }
       nav ul.open { display: flex; }
-      /* Cross-site links become their own row on mobile */
       .xnav { width: 100%; justify-content: flex-start; padding-bottom: .25rem; }
     }
 
@@ -326,7 +328,14 @@
   <!-- ======== NAVIGATION ======== -->
   <nav aria-label="Main navigation">
     <div class="container">
-      <a href="#home" class="brand">JYA<span>.</span></a>
+      <a href="#home" class="brand">
+        <img src="images/american-flag.svg" 
+             alt="American flag" 
+             width="42" 
+             height="28"
+             style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+        JYA<span>.</span>
+      </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation"
         onclick="document.querySelector('nav ul').classList.toggle('open')">
@@ -669,7 +678,7 @@
   </footer>
 
   <script>
-    // Smooth scroll + close mobile nav (based on your original baseline) [1](https://outlook.live.com/owa/?ItemID=AQMkADAwATMwMAItMTc2NgAtZjI5NS0wMAItMDAKAEYAAAOLDDb78CkcTpvEN4rp16H1BwDL%2byqHo2GRS4acEhNFzxElAAACAQwAAADL%2byqHo2GRS4acEhNFzxElAAcb6KRyAAAA&exvsurl=1&viewmodel=ReadMessageItem)
+    // Smooth scroll + close mobile nav
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
@@ -682,7 +691,7 @@
       });
     });
 
-    // Sticky nav background on scroll (based on your original baseline) [1](https://outlook.live.com/owa/?ItemID=AQMkADAwATMwMAItMTc2NgAtZjI5NS0wMAItMDAKAEYAAAOLDDb78CkcTpvEN4rp16H1BwDL%2byqHo2GRS4acEhNFzxElAAACAQwAAADL%2byqHo2GRS4acEhNFzxElAAcb6KRyAAAA&exvsurl=1&viewmodel=ReadMessageItem)
+    // Sticky nav background on scroll
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       nav.style.background = window.scrollY > 60
