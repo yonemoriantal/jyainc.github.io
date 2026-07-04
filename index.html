@@ -323,13 +323,15 @@
 </head>
 
 <body>
-  <!-- NAVIGATION (Updated with one link to Rural Engineering) -->
+  <!-- NAVIGATION -->
   <nav aria-label="Main navigation">
     <div class="container nav-container">
       
       <a href="#home" class="brand">
-        <img src="/Flag_of_the_United_States.svg.webp" alt="American flag" width="42" height="28"
-             style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+        <!-- Fixed flag image path -->
+        <img src="Flag_of_the_United_States.svg.webp" alt="American flag" width="42" height="28"
+             style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"
+             onerror="this.style.display='none'">
         JYA<span>.</span>
       </a>
 
@@ -338,6 +340,7 @@
         <span></span><span></span><span></span>
       </button>
 
+      <!-- Main menu with Rural Engineering link -->
       <ul class="nav-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -506,7 +509,7 @@
     </div>
   </section>
 
-  <!-- FOOTER (with link to Rural Engineering) -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>© 2026 JYA Inc. All rights reserved.</p>
