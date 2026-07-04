@@ -32,7 +32,7 @@
     a:hover { color: var(--white); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* ==================== NAVIGATION ==================== */
+    /* NAVIGATION */
     nav {
       position: fixed;
       top: 0;
@@ -68,7 +68,7 @@
     .nav-menu {
       list-style: none;
       display: flex;
-      gap: 1.35rem;           /* ← Slightly tighter gap */
+      gap: 1.35rem;
       flex-wrap: nowrap;
       align-items: center;
     }
@@ -82,40 +82,6 @@
       white-space: nowrap;
     }
     .nav-menu li a:hover { color: var(--white); }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .xnav {
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .xnav a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--steel);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      border: 1px solid var(--divider);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .xnav a:hover {
-      color: var(--white);
-      border-color: var(--accent);
-      background: rgba(74, 144, 217, 0.08);
-    }
-    .xnav a.active {
-      color: var(--white);
-      border-color: var(--accent);
-      background: rgba(74, 144, 217, 0.12);
-    }
 
     .nav-toggle {
       display: none;
@@ -143,16 +109,9 @@
         order: 3;
       }
       .nav-menu.open { display: flex; }
-      .nav-right {
-        width: 100%;
-        justify-content: flex-start;
-        padding-top: .5rem;
-        border-top: 1px solid var(--divider);
-        order: 2;
-      }
     }
 
-    /* ==================== HERO ==================== */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -194,8 +153,6 @@
       justify-content: center;
       flex-wrap: wrap;
     }
-
-    /* ==================== BUTTONS (more consistent) ==================== */
     .btn {
       display: inline-block;
       padding: 0.85rem 2.2rem;
@@ -206,29 +163,18 @@
       text-transform: uppercase;
       transition: all .3s ease;
     }
-    .btn-primary { 
-      background: var(--accent); 
-      color: var(--white); 
-    }
-    .btn-primary:hover { 
-      background: #3670b0; 
-      transform: translateY(-2px); 
-    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #3670b0; transform: translateY(-2px); }
     .btn-outline {
       border: 1px solid var(--steel);
       color: var(--text-main);
       background: transparent;
     }
-    .btn-outline:hover { 
-      background: var(--steel); 
-      color: var(--white); 
-      border-color: var(--accent);
-    }
+    .btn-outline:hover { background: var(--steel); color: var(--white); border-color: var(--accent); }
 
-    /* ==================== SECTIONS ==================== */
+    /* SECTIONS */
     section { padding: 5rem 0; }
     section:nth-child(even) { background: var(--slate); }
-    
     .section-label {
       font-size: .7rem;
       text-transform: uppercase;
@@ -260,7 +206,6 @@
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .about-text p { margin-bottom: 1rem; }
     .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    
     .highlight-card, .service-card {
       background: var(--navy);
       border: 1px solid var(--divider);
@@ -280,7 +225,6 @@
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     .service-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: .6rem; }
     .service-card p { font-size: .9rem; color: var(--text-muted); }
-    
     .service-icon {
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
@@ -379,7 +323,7 @@
 </head>
 
 <body>
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION (Updated with one link to Rural Engineering) -->
   <nav aria-label="Main navigation">
     <div class="container nav-container">
       
@@ -400,15 +344,8 @@
         <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="https://jya-rural-engineering.com">Rural Engineering</a></li>
       </ul>
-
-      <div class="nav-right">
-        <div class="xnav">
-          <a id="xnav-jya" href="https://jyainc.com">JYA Inc.</a>
-          <a id="xnav-hh" href="https://homes-hear-specialist.com">HOMES / HEAR</a>
-          <a id="xnav-usda" href="https://jya-rural-engineering.com">Rural Engineering</a>
-        </div>
-      </div>
 
     </div>
   </nav>
@@ -569,11 +506,17 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (with link to Rural Engineering) -->
   <footer>
     <div class="container">
       <p>© 2026 JYA Inc. All rights reserved.</p>
-      <div class="footer-links">
+      
+      <!-- Clean link to rural site -->
+      <p style="margin-top: 1rem; font-size: 0.9rem;">
+        <a href="https://jya-rural-engineering.com">Rural Infrastructure &amp; Energy Services →</a>
+      </p>
+
+      <div class="footer-links" style="margin-top: 1rem;">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#experience">Experience</a>
@@ -601,16 +544,6 @@
         ? 'rgba(11, 26, 46, .97)'
         : 'rgba(11, 26, 46, .92)';
     });
-
-    (function () {
-      const host = (location.hostname || '').toLowerCase();
-      const jya = document.getElementById('xnav-jya');
-      const hh  = document.getElementById('xnav-hh');
-      const us  = document.getElementById('xnav-usda');
-      if (host.includes('jyainc.com')) jya && jya.classList.add('active');
-      else if (host.includes('homes-hear-specialist.com')) hh && hh.classList.add('active');
-      else if (host.includes('jya-rural-engineering.com')) us && us.classList.add('active');
-    })();
   </script>
 </body>
 </html>
