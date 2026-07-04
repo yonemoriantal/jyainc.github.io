@@ -32,7 +32,7 @@
     a:hover { color: var(--white); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* ==================== NAVIGATION (FIXED) ==================== */
+    /* ==================== NAVIGATION ==================== */
     nav {
       position: fixed;
       top: 0;
@@ -68,7 +68,7 @@
     .nav-menu {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1.35rem;           /* ← Slightly tighter gap */
       flex-wrap: nowrap;
       align-items: center;
     }
@@ -194,28 +194,41 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
+    /* ==================== BUTTONS (more consistent) ==================== */
     .btn {
       display: inline-block;
-      padding: .75rem 2rem;
+      padding: 0.85rem 2.2rem;
       border-radius: 4px;
       font-size: .85rem;
       font-weight: 600;
       letter-spacing: .04em;
       text-transform: uppercase;
-      transition: all .25s;
+      transition: all .3s ease;
     }
-    .btn-primary { background: var(--accent); color: var(--white); }
-    .btn-primary:hover { background: #3670b0; color: var(--white); }
+    .btn-primary { 
+      background: var(--accent); 
+      color: var(--white); 
+    }
+    .btn-primary:hover { 
+      background: #3670b0; 
+      transform: translateY(-2px); 
+    }
     .btn-outline {
       border: 1px solid var(--steel);
       color: var(--text-main);
       background: transparent;
     }
-    .btn-outline:hover { border-color: var(--accent); color: var(--white); }
+    .btn-outline:hover { 
+      background: var(--steel); 
+      color: var(--white); 
+      border-color: var(--accent);
+    }
 
     /* ==================== SECTIONS ==================== */
     section { padding: 5rem 0; }
     section:nth-child(even) { background: var(--slate); }
+    
     .section-label {
       font-size: .7rem;
       text-transform: uppercase;
@@ -247,27 +260,27 @@
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .about-text p { margin-bottom: 1rem; }
     .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .highlight-card {
+    
+    .highlight-card, .service-card {
       background: var(--navy);
       border: 1px solid var(--divider);
       border-radius: 6px;
-      padding: 1.4rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .highlight-card:hover, .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
     }
     .highlight-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
     .highlight-card .label { font-size: .78rem; color: var(--text-muted); margin-top: .35rem; text-transform: uppercase; letter-spacing: .06em; }
+
     @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
 
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .service-card {
-      background: var(--navy);
-      border: 1px solid var(--divider);
-      border-radius: 6px;
-      padding: 2rem;
-      transition: border-color .3s;
-    }
-    .service-card:hover { border-color: var(--accent); }
     .service-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: .6rem; }
     .service-card p { font-size: .9rem; color: var(--text-muted); }
+    
     .service-icon {
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
@@ -366,24 +379,21 @@
 </head>
 
 <body>
-  <!-- NAVIGATION (FIXED) -->
+  <!-- NAVIGATION -->
   <nav aria-label="Main navigation">
     <div class="container nav-container">
       
-      <!-- Brand -->
       <a href="#home" class="brand">
         <img src="/Flag_of_the_United_States.svg.webp" alt="American flag" width="42" height="28"
              style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
         JYA<span>.</span>
       </a>
 
-      <!-- Mobile Toggle -->
       <button class="nav-toggle" aria-label="Toggle navigation"
         onclick="document.querySelector('.nav-menu').classList.toggle('open')">
         <span></span><span></span><span></span>
       </button>
 
-      <!-- Middle Menu -->
       <ul class="nav-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -392,7 +402,6 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <!-- Right Side -->
       <div class="nav-right">
         <div class="xnav">
           <a id="xnav-jya" href="https://jyainc.com">JYA Inc.</a>
@@ -574,7 +583,6 @@
   </footer>
 
   <script>
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
@@ -587,7 +595,6 @@
       });
     });
 
-    // Navbar background on scroll
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       navEl.style.background = window.scrollY > 60
@@ -595,7 +602,6 @@
         : 'rgba(11, 26, 46, .92)';
     });
 
-    // Active state for right-side links
     (function () {
       const host = (location.hostname || '').toLowerCase();
       const jya = document.getElementById('xnav-jya');
