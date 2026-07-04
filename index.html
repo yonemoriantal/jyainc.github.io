@@ -32,7 +32,7 @@
     a:hover { color: var(--white); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* ==================== NAVIGATION ==================== */
+    /* NAVIGATION */
     nav {
       position: fixed;
       top: 0;
@@ -68,7 +68,7 @@
     .nav-menu {
       list-style: none;
       display: flex;
-      gap: 1.35rem;           /* ← Slightly tighter gap */
+      gap: 1.35rem;
       flex-wrap: nowrap;
       align-items: center;
     }
@@ -82,40 +82,6 @@
       white-space: nowrap;
     }
     .nav-menu li a:hover { color: var(--white); }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .xnav {
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .xnav a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--steel);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      border: 1px solid var(--divider);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .xnav a:hover {
-      color: var(--white);
-      border-color: var(--accent);
-      background: rgba(74, 144, 217, 0.08);
-    }
-    .xnav a.active {
-      color: var(--white);
-      border-color: var(--accent);
-      background: rgba(74, 144, 217, 0.12);
-    }
 
     .nav-toggle {
       display: none;
@@ -143,16 +109,9 @@
         order: 3;
       }
       .nav-menu.open { display: flex; }
-      .nav-right {
-        width: 100%;
-        justify-content: flex-start;
-        padding-top: .5rem;
-        border-top: 1px solid var(--divider);
-        order: 2;
-      }
     }
 
-    /* ==================== HERO ==================== */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -194,8 +153,6 @@
       justify-content: center;
       flex-wrap: wrap;
     }
-
-    /* ==================== BUTTONS (more consistent) ==================== */
     .btn {
       display: inline-block;
       padding: 0.85rem 2.2rem;
@@ -206,29 +163,18 @@
       text-transform: uppercase;
       transition: all .3s ease;
     }
-    .btn-primary { 
-      background: var(--accent); 
-      color: var(--white); 
-    }
-    .btn-primary:hover { 
-      background: #3670b0; 
-      transform: translateY(-2px); 
-    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #3670b0; transform: translateY(-2px); }
     .btn-outline {
       border: 1px solid var(--steel);
       color: var(--text-main);
       background: transparent;
     }
-    .btn-outline:hover { 
-      background: var(--steel); 
-      color: var(--white); 
-      border-color: var(--accent);
-    }
+    .btn-outline:hover { background: var(--steel); color: var(--white); border-color: var(--accent); }
 
-    /* ==================== SECTIONS ==================== */
+    /* SECTIONS */
     section { padding: 5rem 0; }
     section:nth-child(even) { background: var(--slate); }
-    
     .section-label {
       font-size: .7rem;
       text-transform: uppercase;
@@ -260,27 +206,27 @@
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .about-text p { margin-bottom: 1rem; }
     .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    
-    .highlight-card, .service-card {
+    .highlight-card {
       background: var(--navy);
       border: 1px solid var(--divider);
       border-radius: 6px;
-      padding: 1.5rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    .highlight-card:hover, .service-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
+      padding: 1.4rem;
     }
     .highlight-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
     .highlight-card .label { font-size: .78rem; color: var(--text-muted); margin-top: .35rem; text-transform: uppercase; letter-spacing: .06em; }
-
     @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
 
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: var(--navy);
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: border-color .3s;
+    }
+    .service-card:hover { border-color: var(--accent); }
     .service-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: .6rem; }
     .service-card p { font-size: .9rem; color: var(--text-muted); }
-    
     .service-icon {
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
@@ -347,24 +293,6 @@
     .contact-info-item .ci-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: .15rem; }
     .contact-info-item .ci-value { font-size: .95rem; color: var(--white); }
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: .75rem 1rem;
-      margin-bottom: 1rem;
-      background: var(--navy);
-      border: 1px solid var(--divider);
-      border-radius: 4px;
-      color: var(--text-main);
-      font-size: .9rem;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus { outline: none; border-color: var(--accent); }
-    .contact-form textarea { min-height: 120px; resize: vertical; }
-    .contact-form .btn { width: 100%; }
-
-    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
-
     footer {
       background: var(--navy);
       border-top: 1px solid var(--divider);
@@ -401,14 +329,6 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
-      <div class="nav-right">
-        <div class="xnav">
-          <a id="xnav-jya" href="https://jyainc.com">JYA Inc.</a>
-          <a id="xnav-hh" href="https://homes-hear-specialist.com">HOMES / HEAR</a>
-          <a id="xnav-usda" href="https://jya-rural-engineering.com">Rural Engineering</a>
-        </div>
-      </div>
 
     </div>
   </nav>
@@ -475,142 +395,3 @@
     <div class="container">
       <p class="section-label">Capabilities</p>
       <h2 class="section-title">Credentials & Qualifications</h2>
-      <div class="divider"></div>
-      <p class="section-intro">Professional licensure, federal clearance, and industry certifications supporting execution across demanding environments.</p>
-      <div class="cap-grid">
-        <div class="cap-item"><span class="cap-icon">✓</span><span>Professional Engineer (Mechanical & Electrical)</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>TS/SCI Security Clearance</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>Project Management Professional (PMP)</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>LEED AP BD+C</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>Autodesk Revit Certified Trainer</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>AGC BIM Certificate</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>SAM.gov Registered Entity</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>Nebraska Licensed Contractor (#24979-26)</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>Small Disadvantaged Business (Rural)</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>SBA Mentor-Protégé Eligible</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>CONUS & OCONUS Operations</span></div>
-        <div class="cap-item"><span class="cap-icon">✓</span><span>DD-1391 & Federal Cost Estimating</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AGENCY TABLE -->
-  <section id="agency-summary">
-    <div class="container">
-      <p class="section-label">Agency Summary</p>
-      <h2 class="section-title">Experience by Agency</h2>
-      <div class="divider"></div>
-      <p class="section-intro">Federal-brief format overview of representative agency experience, roles, and program scope.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Agency / Client</th>
-              <th>Key Projects</th>
-              <th>Role(s)</th>
-              <th>Scope / Impact</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>DHS — U.S. Customs & Border Protection</td><td>Nationwide detention facilities</td><td>Owner's Representative</td><td>Emergency-funded task orders</td></tr>
-            <tr><td>DoD — U.S. Air Force</td><td>NKO & STRATCOM Tier IV Data Centers</td><td>Project Manager</td><td>$500M+ mission-critical programs</td></tr>
-            <tr><td>DoD — U.S. Army / USACE</td><td>Secure underground infrastructure</td><td>Estimator / PE</td><td>Tier IV data centers & tunnels</td></tr>
-            <tr><td>DoD — U.S. Navy / NAVFAC</td><td>China Lake NAWS & solar programs</td><td>Senior Estimator</td><td>Large-scale aviation & energy</td></tr>
-            <tr><td>DOJ — FBI</td><td>Redstone Arsenal Tier IV Data Center</td><td>Owner's Representative</td><td>Mission-critical delivery</td></tr>
-            <tr><td>Intelligence Community</td><td>NSA Fort Meade & STRATCOM</td><td>BIM/VDC Lead</td><td>TS/SCI SCIF-grade facilities</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <p class="section-label">Experience</p>
-      <h2 class="section-title">Representative Experience</h2>
-      <div class="divider"></div>
-      <p class="section-intro">High-level summaries of mission-critical program experience.</p>
-      <div class="exp-timeline">
-        <div class="exp-item"><h3>Tier IV Data Center Programs</h3><div class="exp-role">Multiple Agencies</div><p>End-to-end project controls for Tier IV programs across CONUS and OCONUS.</p></div>
-        <div class="exp-item"><h3>Secure Underground & Continuity Infrastructure</h3><div class="exp-role">Army, NSA, USSTRATCOM</div><p>Engineering and estimating for classified underground facilities.</p></div>
-        <div class="exp-item"><h3>Detention & Border Security Infrastructure</h3><div class="exp-role">DHS</div><p>Owner's Representative support for detention facilities.</p></div>
-        <div class="exp-item"><h3>Aviation & Renewable Energy Programs</h3><div class="exp-role">U.S. Navy / NAVFAC</div><p>Senior estimating and concept design for aviation and energy programs.</p></div>
-        <div class="exp-item"><h3>HOMES / HEAR Energy Modeling</h3><div class="exp-role">Nebraska & Iowa</div><p>Energy rebate modeling and submission packet preparation.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Start a Conversation</h2>
-      <div class="divider"></div>
-      <div class="contact-grid">
-        <div class="contact-details">
-          <p class="section-intro" style="margin-bottom:2rem;">Ready to discuss a program, partnership, or teaming opportunity? Reach out directly—we respond within one business day.</p>
-          <div class="contact-info-item"><span class="ci-icon">✉</span><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:john@jyainc.com">john@jyainc.com</a></div></div></div>
-          <div class="contact-info-item"><span class="ci-icon">☎</span><div><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:+14024305418">(402) 430-5418</a></div></div></div>
-          <div class="contact-info-item"><span class="ci-icon">⚑</span><div><div class="ci-label">Office</div><div class="ci-value">302 Prairie Road, Plattsmouth, NE 68048</div></div></div>
-          <div class="contact-info-item"><span class="ci-icon">◆</span><div><div class="ci-label">Registrations</div><div class="ci-value">SAM.gov · DSBS · NE License #24979-26</div></div></div>
-        </div>
-        <div class="contact-form">
-          <form action="#" method="post" onsubmit="return false;">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <input type="text" name="subject" placeholder="Subject" />
-            <textarea name="message" placeholder="How can we help?" required></textarea>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p style="margin-top:.75rem; font-size:.8rem; color:var(--text-muted);">Note: This form is a static placeholder. Use email for now.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2026 JYA Inc. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-          const menu = document.querySelector('.nav-menu');
-          if (menu) menu.classList.remove('open');
-        }
-      });
-    });
-
-    const navEl = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      navEl.style.background = window.scrollY > 60
-        ? 'rgba(11, 26, 46, .97)'
-        : 'rgba(11, 26, 46, .92)';
-    });
-
-    (function () {
-      const host = (location.hostname || '').toLowerCase();
-      const jya = document.getElementById('xnav-jya');
-      const hh  = document.getElementById('xnav-hh');
-      const us  = document.getElementById('xnav-usda');
-      if (host.includes('jyainc.com')) jya && jya.classList.add('active');
-      else if (host.includes('homes-hear-specialist.com')) hh && hh.classList.add('active');
-      else if (host.includes('jya-rural-engineering.com')) us && us.classList.add('active');
-    })();
-  </script>
-</body>
-</html>
