@@ -32,7 +32,7 @@
     a:hover { color: var(--white); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* NAVIGATION */
+    /* ==================== NAVIGATION (FIXED) ==================== */
     nav {
       position: fixed;
       top: 0;
@@ -49,12 +49,8 @@
       align-items: center;
       justify-content: space-between;
       padding: .85rem 0;
-    }
-
-    /* FAR LEFT */
-    .nav-left {
-      display: flex;
-      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -65,24 +61,19 @@
       align-items: center;
       gap: 10px;
       white-space: nowrap;
+      text-decoration: none;
     }
     .brand span { color: var(--accent); }
 
-    /* CENTER */
-    .nav-center {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .nav-center ul {
+    .nav-menu {
       list-style: none;
       display: flex;
-      gap: 2.5rem;
+      gap: 1.5rem;
       flex-wrap: nowrap;
+      align-items: center;
     }
 
-    .nav-center ul li a {
+    .nav-menu li a {
       font-size: .82rem;
       font-weight: 500;
       color: var(--text-muted);
@@ -90,9 +81,8 @@
       letter-spacing: .08em;
       white-space: nowrap;
     }
-    .nav-center ul li a:hover { color: var(--white); }
+    .nav-menu li a:hover { color: var(--white); }
 
-    /* FAR RIGHT */
     .nav-right {
       display: flex;
       align-items: center;
@@ -142,25 +132,27 @@
       margin: 5px 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .nav-toggle { display: block; }
-      .nav-center ul {
+      .nav-menu {
         display: none;
         width: 100%;
         flex-direction: column;
         padding: 1rem 0;
         gap: .8rem;
+        order: 3;
       }
-      .nav-center ul.open { display: flex; }
+      .nav-menu.open { display: flex; }
       .nav-right {
         width: 100%;
         justify-content: flex-start;
         padding-top: .5rem;
         border-top: 1px solid var(--divider);
+        order: 2;
       }
     }
 
-    /* HERO */
+    /* ==================== HERO ==================== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -213,7 +205,7 @@
       transition: all .25s;
     }
     .btn-primary { background: var(--accent); color: var(--white); }
-    .btn-primary:hover { background: var(--accent-dim); color: var(--white); }
+    .btn-primary:hover { background: #3670b0; color: var(--white); }
     .btn-outline {
       border: 1px solid var(--steel);
       color: var(--text-main);
@@ -221,7 +213,7 @@
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--white); }
 
-    /* SECTIONS */
+    /* ==================== SECTIONS ==================== */
     section { padding: 5rem 0; }
     section:nth-child(even) { background: var(--slate); }
     .section-label {
@@ -374,36 +366,33 @@
 </head>
 
 <body>
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION (FIXED) -->
   <nav aria-label="Main navigation">
     <div class="container nav-container">
       
-      <!-- FAR LEFT -->
-      <div class="nav-left">
-        <a href="#home" class="brand">
-          <img src="/Flag_of_the_United_States.svg.webp" alt="American flag" width="42" height="28"
-               style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-          JYA<span>.</span>
-        </a>
-      </div>
+      <!-- Brand -->
+      <a href="#home" class="brand">
+        <img src="/Flag_of_the_United_States.svg.webp" alt="American flag" width="42" height="28"
+             style="vertical-align: middle; margin-right: 10px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+        JYA<span>.</span>
+      </a>
 
+      <!-- Mobile Toggle -->
       <button class="nav-toggle" aria-label="Toggle navigation"
-        onclick="document.querySelector('.nav-center ul').classList.toggle('open')">
+        onclick="document.querySelector('.nav-menu').classList.toggle('open')">
         <span></span><span></span><span></span>
       </button>
 
-      <!-- CENTER -->
-      <div class="nav-center">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#capabilities">Capabilities</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <!-- Middle Menu -->
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-      <!-- FAR RIGHT -->
+      <!-- Right Side -->
       <div class="nav-right">
         <div class="xnav">
           <a id="xnav-jya" href="https://jyainc.com">JYA Inc.</a>
@@ -585,18 +574,20 @@
   </footer>
 
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
-          const menu = document.querySelector('.nav-center ul');
+          const menu = document.querySelector('.nav-menu');
           if (menu) menu.classList.remove('open');
         }
       });
     });
 
+    // Navbar background on scroll
     const navEl = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       navEl.style.background = window.scrollY > 60
@@ -604,6 +595,7 @@
         : 'rgba(11, 26, 46, .92)';
     });
 
+    // Active state for right-side links
     (function () {
       const host = (location.hostname || '').toLowerCase();
       const jya = document.getElementById('xnav-jya');
